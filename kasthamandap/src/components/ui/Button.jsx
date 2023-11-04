@@ -17,7 +17,7 @@ const Button = ({ color = "primary", size = "default", onClick, children }) => {
 
   return (
     <button
-      className={`rounded-md  ${sizeClasses} ${colorClasses} transition-colors duration-500 sm`}
+      className={`rounded-full  ${sizeClasses} ${colorClasses} transition-colors duration-500 sm`}
       onClick={() => onClick && onClick()}
     >
       {children}
