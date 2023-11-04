@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         cursive: ['CursiveFont', 'cursive'],
+        dancing: ['Dancing Script', 'cursive']
       },
     },
   },

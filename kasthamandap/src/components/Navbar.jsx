@@ -25,7 +25,7 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <div className="flex-none mr-10 flex items-center justify-center">
+            <div className="flex-none mr-10 flex items-center justify-center drop-shadow-md">
                 <Button size="large">Book Table</Button>
             </div>
             
