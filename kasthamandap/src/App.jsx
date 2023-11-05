@@ -1,4 +1,6 @@
 import About from "./components/About";
+import AboutAlaCarte from "./components/AboutAlaCarte";
+import AboutMenu from "./components/AboutMenu";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 
@@ -8,6 +10,8 @@ const App = () => {
       <Navbar />
       <Header />
       <About />
+      <AboutMenu />
+      <AboutAlaCarte />
     </>
   );
 };
