@@ -15,7 +15,6 @@ function OpeningHours() {
           id: doc.id,
         }));
         setOpeningHours(filteredData);
-        console.log("openingHours", filteredData[0].openingHour);
       } catch (error) {
         console.error(error);
       }
