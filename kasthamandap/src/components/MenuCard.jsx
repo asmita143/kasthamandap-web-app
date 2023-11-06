@@ -8,7 +8,7 @@ import Divider from "./ui/Divider";
 const MenuCard = () => {
   return (
     <Card href="/button-chicken">
-      <CardHeader>Button Chicken</CardHeader>
+      <CardHeader>Butter Chicken</CardHeader>
       <Divider />
       <CardBody>
         Tandoori grilled chicken pieces in creamy ginger, tomato butter sauce
