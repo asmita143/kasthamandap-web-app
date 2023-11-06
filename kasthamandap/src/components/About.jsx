@@ -13,15 +13,15 @@ const About = () => {
         </div>
         <div className="basis-1/2 ml-10">
             <p className="mt-20 text-6xl italic font-bold font-dancing underline underline-offset-4 leading-relaxed">About Us</p>
-            <p className="mb-6 leading-relaxed text-xl font-cursive ">
-                    Restaurant Kasthamandap is a popular Nepalese restautant, located in shopping center Pasaati, at kirkkokatu 7, kotka. 
+            <p className="mb-6 leading-relaxed text-xl font-cursive indent-8">
+                Restaurant Kasthamandap is a popular Nepalese restautant, located in shopping center Pasaati, at kirkkokatu 7, kotka. 
                 It is the only Nepali restaurant in kotka and offers delicious food and versatile meal options. The restaurant is conveniently
                 located in the city center, so it is easily accessible to both locals and the tourists.
             </p>
             <p>
                 
             </p>
-            <p className="leading-relaxed text-xl font-cursive">
+            <p className="leading-relaxed text-xl font-cursive indent-8">
                 Kasthamandap restautant's lunch menu has many popular dishes like Chicken Korma, Chicken Rogan Josh, shahi Panir, Butter Chicken, Kasthamandap Chicken, Lamb Masala
                 and many more. There are also gluten-free and vegeterian options. The resturant has a cozy atmosphere where you can enjoy delicious Nepalese food with friends ans family.
             </p>

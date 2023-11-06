@@ -1,17 +1,10 @@
-import React from "react";
 
-const Card = ({ href, children }) => {
-  let cardClasses =
-    "block max-w-md p-4 rounded-md bg-gray-300 hover:scale-105 duration-500";
+const Card = ({ children }) => {
+  let cardClasses ="block flex-1 basis-1/4 h-96 w-full p-4 m-10 rounded-md bg-gray-300 ";
 
-  if (href)
-    return (
-      <a href={href} className={cardClasses}>
-        {children}
-      </a>
-    );
-
-  return <div className={cardClasses}>{children}</div>;
+  return (
+    <div className={cardClasses}>{children}</div>
+  )
 };
 
 export default Card;

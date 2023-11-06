@@ -6,7 +6,8 @@ export default {
       fontFamily: {
         cursive: ['CursiveFont', 'cursive'],
         dancing: ['Dancing Script', 'cursive'],
-        satisfy:['Satisfy', 'cursive']
+        satisfy:['Satisfy', 'cursive'],
+        nanum:['Nanum Gothic Coding', 'cursive']
       },
     },
   },
