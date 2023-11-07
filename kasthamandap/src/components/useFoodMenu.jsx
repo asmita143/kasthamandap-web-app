@@ -39,11 +39,11 @@ function useFoodMenu() {
       );
       setLambDish(lambDishOnly);
 
-      //Filter food items where chicken is true
+      //Filter food items where veg_dish is true
       const vegDishOnly = filteredFood.filter((item) => item.veg_dish === true);
       setVegDish(vegDishOnly);
 
-      //Filter food items where chicken is true
+      //Filter food items where tandoor dish is true
       const tandoorDishOnly = filteredFood.filter(
         (item) => item.tandoor_dish === true
       );
