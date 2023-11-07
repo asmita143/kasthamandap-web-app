@@ -29,4 +29,16 @@ const Navbar = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Navbar;
+=======
+            <div className="flex-none mr-10 flex items-center justify-center drop-shadow-md">
+                <Button size="large">Book a Table</Button>
+            </div>
+            
+        </div>
+    )
+}
+
+export default Navbar;
+>>>>>>> 9dd871ded90a5794088f3e6fa1604718e84ba7b0

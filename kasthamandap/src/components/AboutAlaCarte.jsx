@@ -20,7 +20,11 @@ const AboutAlaCarte = () => {
 
       <img
         className="object-cover h-96 w-full rounded-lg"
+<<<<<<< HEAD
         src="./assets/images/spices.jpg"
+=======
+        src="../public/Images/spices.jpg"
+>>>>>>> 9dd871ded90a5794088f3e6fa1604718e84ba7b0
       ></img>
     </div>
   );
