@@ -3,16 +3,16 @@ import CardHeader from "./ui/CardHeader";
 import CardBody from "./ui/CardBody";
 import Divider from "./ui/Divider";
 import CardTitle from "./ui/CardTitle";
+import useAlaCarte from "../hooks/useAlaCarte";
 
-const MenuCard = ({items}) => {
-  console.log(items);
+const MenuCard = ({ name }) => {
+  const { getStartersList } = useAlaCarte();
   return (
     <Card>
-      <CardTitle>Starters</CardTitle>
-      <CardHeader dish="Butter Chicken" price="13,90"></CardHeader>
+      <CardTitle dishName={name}></CardTitle>
+      <CardHeader dish="Butter Chicken" price="13.90"></CardHeader>
       <Divider />
-      <CardBody>
-        Tandoori grilled chicken pieces in creamy ginger, tomato butter sauce.
+      <CardBody desc="Fried Chicken">
       </CardBody>
     </Card>
   );

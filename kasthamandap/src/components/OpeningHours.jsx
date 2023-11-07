@@ -1,66 +1,46 @@
-import { useEffect, useState } from "react";
-import { db } from "../config/firebase";
-import { getDocs, collection } from "firebase/firestore";
+import React from "react";
+import useOpeningHours from "../hooks/useOpeningHours";
+import useExceptionalHours from "../hooks/useExceptionalHours";
 
-function OpeningHours() {
-  const [openingHours, setOpeningHours] = useState([]);
-  const contactInfoRef = collection(db, "OpeningHours");
-
-  useEffect(() => {
-    const getOpeningHours = async () => {
-      try {
-        const data = await getDocs(contactInfoRef);
-        const filteredData = data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setOpeningHours(filteredData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getOpeningHours();
-  }, []);
-
-  // Find opening hours
-  const weekdayOpeningHours = openingHours.find(
-    (info) => info.id === "weekday"
+const HourList = ({ openingHour, closingHour, day }) => {
+  return (
+    <li>
+      <span className="inline-block w-48">{day}</span>
+      {openingHour || closingHour
+        ? `${openingHour}:00 - ${closingHour}:00`
+        : "Closed"}
+    </li>
   );
-  const saturdayOpeningHours = openingHours.find(
-    (info) => info.id === "saturday"
-  );
-  const sundayOpeningHours = openingHours.find((info) => info.id === "sunday");
+};
+
+const OpeningHours = () => {
+  const { weekdayOpeningHours, saturdayOpeningHours, sundayOpeningHours } =
+    useOpeningHours();
+  const { exceptionalHours } = useExceptionalHours();
+  console.log(exceptionalHours);
 
   return (
-    <div>
-      <h1>Opening Hours</h1>
-
+    <ul className="bg-gray-300">
       {weekdayOpeningHours && (
-        <div className="day">
-          <h2>Monday</h2>
-          <p>{weekdayOpeningHours.openingHour} : 00</p>
-          <p>{weekdayOpeningHours.closingHour} : 00</p>
-        </div>
+        <HourList
+          day="Monday - Friday"
+          openingHour={weekdayOpeningHours.openingHour}
+          closingHour={weekdayOpeningHours.closingHour}
+        />
       )}
-
       {saturdayOpeningHours && (
-        <div className="day">
-          <h2>Saturday</h2>
-          <p>{saturdayOpeningHours.openingHour} : 00</p>
-          <p>{saturdayOpeningHours.closingHour} : 00</p>
-        </div>
+        <HourList
+          day="Saturday"
+          openingHour={saturdayOpeningHours.openingHour}
+          closingHour={saturdayOpeningHours.closingHour}
+        />
       )}
-
-      {sundayOpeningHours && (
-        <div className="day">
-          <h2>Sunday</h2>
-          {!sundayOpeningHours.open && 
-            <p>Closed</p>
-          }
-        </div>
+      {sundayOpeningHours && <HourList day="Sunday" />}
+      {exceptionalHours && exceptionalHours[0]?.status === "active" && (
+        <li>{exceptionalHours[0]?.exceptionMessage}</li>
       )}
-    </div>
+    </ul>
   );
-}
+};
 
 export default OpeningHours;

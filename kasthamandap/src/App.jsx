@@ -1,12 +1,12 @@
 
-import DisheCard from "./components/AlacartePage/DisheCard";
+import DishCard from "./components/AlacartePage/DishCard";
 import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <DisheCard />
+      <DishCard />
     </>
   );
 };

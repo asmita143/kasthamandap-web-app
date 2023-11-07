@@ -1,5 +1,5 @@
-const CardBody = ({ children }) => (
-  <p className="text-sm tracking-wide">{children}</p>
+const CardBody = ({ desc }) => (
+  <p className="text-sm tracking-wide">{desc}</p>
 );
 
 export default CardBody;

@@ -1,9 +1,8 @@
 import { getDocs, collection } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { db } from "../../config/firebase";
-import MenuCard from "../MenuCard";
+import { db } from "../config/firebase";
 
-function DisheCard () {
+const useAlaCarte = () => {
     const [starters, setStarters] = useState([]);
     const statersRef = collection(db, "A_La_Carte");
 
@@ -16,6 +15,7 @@ function DisheCard () {
                     id:doc.id,
                 }));
                 setStarters(filteredDish);
+                console.log(starters);
             } catch (error) {
                 console.error(error);
             }
@@ -24,20 +24,10 @@ function DisheCard () {
     }, []);
 
     const getStartersList = starters.find (
-        (info) => info.starter == true
+        (info) => info.starter === true
     );
+    console.log(getStartersList);
+    return { getStartersList }
+};
 
-    return (
-        <div className="flex-col">
-            <img className=" object-cover h-48 w-full" src="../public/Images/nepali-food-2.jpg" alt="Image Description"></img>
-            <div className="flex flex-wrap">
-                <MenuCard items={getStartersList}/>
-                <MenuCard />
-                <MenuCard />
-            </div>
-        </div>
-      
-    );
-}
-  
-  export default DisheCard;
+export default useAlaCarte;
