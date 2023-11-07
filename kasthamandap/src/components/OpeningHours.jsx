@@ -1,4 +1,3 @@
-import React from "react";
 import useOpeningHours from "../hooks/useOpeningHours";
 import useExceptionalHours from "../hooks/useExceptionalHours";
 

@@ -33,7 +33,7 @@ const About = () => {
           it is easily accessible to both locals and the tourists.
         </p>
         <p></p>
-        <p className="leading-relaxed text-xl font-cursive indent-8">
+        <p className="leading-relaxed text-xl font-cursive">
           Kasthamandap restautants lunch menu has many popular dishes like
           Chicken Korma, Chicken Rogan Josh, shahi Panir, Butter Chicken,
           Kasthamandap Chicken, Lamb Masala and many more. There are also

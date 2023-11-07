@@ -1,12 +1,11 @@
+import AboutPage from "./components/AboutPage";
+import AlaCarteMenuPage from "./components/AlaCarteMenuPage";
 
-import DishCard from "./components/AlacartePage/DishCard";
-import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <DishCard />
+      <AlaCarteMenuPage />
     </>
   );
 };
