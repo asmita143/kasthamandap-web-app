@@ -22,7 +22,7 @@ const Navbar = () => {
             </div>
 
             <div className="flex-none mr-10 flex items-center justify-center drop-shadow-md">
-                <Button size="large">Book Table</Button>
+                <Button size="large">Book a Table</Button>
             </div>
             
         </div>

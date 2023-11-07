@@ -4,6 +4,7 @@ import AboutAlaCarte from "./components/AboutAlaCarte";
 import AboutMenu from "./components/AboutMenu";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
+import OpeningHours from "./components/OpeningHours";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <AboutMenu />
       <AboutAlaCarte />
       <Footer />
+      <OpeningHours />
     </>
   );
 };

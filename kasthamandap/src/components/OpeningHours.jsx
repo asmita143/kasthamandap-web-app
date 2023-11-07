@@ -7,20 +7,21 @@ function OpeningHours() {
   const contactInfoRef = collection(db, "OpeningHours");
 
   useEffect(() => {
-    const getOpeningHours = async () => {
-      try {
-        const data = await getDocs(contactInfoRef);
-        const filteredData = data.docs.map((doc) => ({
-          ...doc.data(),
-          id: doc.id,
-        }));
-        setOpeningHours(filteredData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
     getOpeningHours();
   }, []);
+
+  const getOpeningHours = async () => {
+    try {
+      const data = await getDocs(contactInfoRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setOpeningHours(filteredData);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   // Find opening hours
   const weekdayOpeningHours = openingHours.find(
@@ -54,9 +55,7 @@ function OpeningHours() {
       {sundayOpeningHours && (
         <div className="day">
           <h2>Sunday</h2>
-          {!sundayOpeningHours.open && 
-            <p>Closed</p>
-          }
+          {!sundayOpeningHours.open && <p>Closed</p>}
         </div>
       )}
     </div>
