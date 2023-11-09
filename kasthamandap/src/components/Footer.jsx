@@ -11,7 +11,16 @@ const Footer = () => {
     <footer className="bottom-0 w-full h-80  md:flex bg-gray-300 text-black">
       <div className="bg-gray-300 md:w-1/2 h-full flex flex-col justify-center items-center gap-5">
         <FooterItemTitle title="Address" />
-        <div className="h-60 w-2/3 bg-gray-200 bg-[url('./assets/images/map.png')] bg-center bg-cover"></div>
+        <div className="h-60 w-2/3 bg-gray-200">
+          <iframe
+            title="Google Map"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCwegKtCIqjsEt0yIRi8RUgfWiW-08B7-8&q=60.4666° N, 26.9442° E`}
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
       <div className="bg-gray-300 md:w-1/2 h-full p-5 flex flex-col justify-center items-center gap-10">
         <div className="bg-gray-300 justify-center items-center">

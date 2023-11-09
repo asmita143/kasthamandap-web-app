@@ -1,8 +1,8 @@
 import Button from "./ui/Button";
 
-const NavBarItem = ({ item }) => (
+const NavBarItem = ({ item, href }) => (
   <li className="mr-20 text-xl font-semibold cursor-pointer md:hover:text-gray-700">
-    {item}
+    <a href={href}>{item}</a>
   </li>
 );
 
@@ -15,9 +15,9 @@ const Navbar = () => {
 
       <div className="flex-1">
         <ul className="flex justify-center m-0 p-0 list-none ">
-          <NavBarItem item="About" />
-          <NavBarItem item="Menu" />
-          <NavBarItem item="A La Carte" />
+          <NavBarItem href="/" item="About" />
+          <NavBarItem href="/" item="Lunch menu" />
+          <NavBarItem href="/aLaCarteMenu" item="A La Carte" />
           <NavBarItem item="Contact" />
         </ul>
       </div>
