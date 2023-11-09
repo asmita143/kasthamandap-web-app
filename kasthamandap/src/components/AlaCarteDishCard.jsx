@@ -1,18 +1,16 @@
 import { useState } from "react";
-import DisplayMenu from "../MenuItems";
-import MenuCard from "./MenuCard";
 import PopUp from "./PopUp";
 
 
 const DishCard = () => {
     const [openPopup, setOpenPopup] = useState(false);
-    const [dishName, setDishName] = useState("");
+    const [dishType, setDishType] = useState("");
 
-    const handleCardClick = (name) => {
+    const handleClick = (name) => {
         // Handle the card click event here
-        setOpenPopup(true)
-        setDishName(name)
         console.log(name);
+        setDishType(name)
+        setOpenPopup(true)
     };
 
     const HandleRemovePopUp = () => setOpenPopup(false);
@@ -20,16 +18,28 @@ const DishCard = () => {
     return (
         <div className="flex-col">
             <img className=" object-cover h-48 w-full" src="./assets/images/nepali-food-2.jpg" alt="Image Description"></img>
-            <div className="flex flex-wrap">
-                <MenuCard name="Starters" onClick={() => handleCardClick("Starters")} />
-                <MenuCard name="Vegetarian" onClick={() => handleCardClick("Vegetarian Dishes")}/>
-                <MenuCard name="Lamb" onClick={() => handleCardClick("Lamb Dishes")}/>
-                <MenuCard name="Chicken" onClick={() => handleCardClick("Chicken Dishes")}/>
-                <MenuCard name="Tandoor" onClick={() => handleCardClick("Tandoor Dishes")}/>
-                <MenuCard name="Drinks" onClick={() => handleCardClick("Drinks")}/>
+            <div className="flex flex-1 m-10  justify-center items-center">
+                <div className="">
+                    <button
+                        onClick={() => handleClick("Alacarte")}
+                        type="button"
+                        className="focus:outline-none bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-xl px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                    >
+                        AlaCarte Menu
+                    </button>
+                </div>
+                <div className="">
+                <button
+                        type="button"
+                        onClick={() => handleClick("Lunch")}
+                        className="focus:outline-none bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-xl px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                    >
+                        Lunch Menu
+                    </button>
+                </div>
             </div>
             <div>
-                <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} dishName={dishName} />
+                <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} dishType={dishType}/>   
             </div>
         </div>
       

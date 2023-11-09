@@ -2,11 +2,11 @@
 import Card from "./ui/Card";
 import CardTitle from "./ui/CardTitle";
 
-const MenuCard = ({ name, onClick }) => {
+const MenuCard = ({ name }) => {
 
   return (
     <>
-      <Card onClick={onClick}>
+      <Card>
         <CardTitle dishName={name} ></CardTitle>
       </Card>
     </>

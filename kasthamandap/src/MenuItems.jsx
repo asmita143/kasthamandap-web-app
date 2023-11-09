@@ -8,7 +8,7 @@ import Divider from "./components/ui/Divider";
 const DisplayMenu = ({name}) => {
     const { starters, chickenDish, lambDish, vegDish, tandoorDish, veganFood } = useFoodMenu();
     return(
-      <div className="w-3/4">
+      <div className="w-full p-6">
         <CardTitle dishName={name}></CardTitle>
         {name === "Starters" &&
             starters.map((starter, index) => (
