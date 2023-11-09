@@ -15,7 +15,6 @@ const App = () => {
       <AboutMenu />
       <AboutAlaCarte />
       <Footer />
-      <OpeningHours />
     </>
   );
 };

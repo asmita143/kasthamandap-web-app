@@ -30,7 +30,7 @@ const TopNavBar = () => {
           <span>
             <a href="">
               <img
-                src="../../public/Images/vite.svg"
+                src="../../public/Images/temple_n_fork_n_spoon_II.svg"
                 alt="logo"
                 width={40}
                 height={40}
