@@ -13,7 +13,7 @@ const AboutMenu = () => {
       ></div>
       <div className="flex-1 flex items-center relative z-10 px-2">
         <div className="text-center mx-auto text-white">
-          <h1 className="font-cursive text-7xl lg:text-9xl font-extrabold my-4 ">
+          <h1 className="font-cursive text-7xl lg:text-9xl font-extrabold my-4">
             Our Menu{" "}
           </h1>
           <p className="text-xl font-medium lg:text-2xl  text-justify ">
@@ -27,7 +27,7 @@ const AboutMenu = () => {
 
           <div className="flex flex-col md:flex-row items-center justify-center md:gap-16">
             <a
-              className="px-10 py-2 inline-block bg-cyan-500 text-white font-bold text-xl hover:bg-cyan-700 transition-colors mt-10 rounded"
+              className="px-10 py-2 inline-block bg-orange-500 text-white font-bold text-xl hover:bg-orange-700 transition-colors mt-10 rounded"
               target="_blank"
               rel="noopener noreferrer"
               style={{ maxWidth: "200px" }}
@@ -36,7 +36,7 @@ const AboutMenu = () => {
               Lunch Menu{" "}
             </a>
             <a
-              className="px-10 py-2 inline-block  bg-cyan-500 text-white font-bold text-xl hover:bg-cyan-700 transition-colors mt-10 rounded"
+              className="px-10 py-2 inline-block  bg-orange-500 text-white font-bold text-xl hover:bg-orange-700 transition-colors mt-10 rounded"
               target="_blank"
               rel="noopener noreferrer"
               style={{ maxWidth: "200px" }}
