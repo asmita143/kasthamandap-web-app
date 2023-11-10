@@ -3,7 +3,7 @@ import { navLinks } from "../constants";
 import CustomButton from "./ui/CustomButton";
 
 const TopNavBar = () => {
-  /* const [scrollOpacity, setScrollOpacity] = useState(70); */
+  const [scrollOpacity, setScrollOpacity] = useState(70);
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -11,9 +11,9 @@ const TopNavBar = () => {
   };
 
   // Set scroll event listener to update the opacity
-/*   useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
-      const opacity = window.scrollY > 1000 ? 0 : 70;
+      const opacity = window.scrollY > 100 ? 100 : 70;
       setScrollOpacity(opacity);
     };
 
@@ -21,11 +21,17 @@ const TopNavBar = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []); */
+  }, []);
 
   return (
     <div className="shadow-lg w-full fixed top-0 left-0 z-50">
-      <div className="lg:flex items-center justify-between bg-black bg-opacity-70 py-6 lg:px-10 px-7">
+      <div
+        className={`lg:flex items-center justify-between bg-black bg-opacity-${scrollOpacity} py-3 lg:px-10 px-10 ${
+          showMenu
+            ? "top-20 bg-opacity-100 transition-all duration-500 ease-in"
+            : `top-[-490px] bg-opacity-${scrollOpacity}`
+        }`}
+      >
         <div className="font-bold text-2xl cursor-pointer flex items-center gap-4 text-white">
           <span>
             <a href="">
@@ -37,7 +43,6 @@ const TopNavBar = () => {
               />
             </a>
           </span>
-          Kasthamandap
         </div>
 
         <div
@@ -49,7 +54,7 @@ const TopNavBar = () => {
 
         <ul
           className={`lg:flex lg:items-center gap-5 lg:pb-0 pb-12 absolute lg:static bg-black lg:z-auto z-[-1] left-0 w-full lg:w-auto lg:pl-0 pl-9 transition-all duration-500 ease-in ${
-            showMenu ? "top-20 bg-opacity-70" : "top-[-490px] bg-opacity-0"
+            showMenu ? "top-20 bg-opacity-100" : "top-[-490px] bg-opacity-0"
           }`}
         >
           {navLinks.map((item) => (
