@@ -1,4 +1,5 @@
 const HeroSection = () => {
+  
   return (
     <section
       className="flex flex-col min-h-screen relative"
@@ -13,7 +14,7 @@ const HeroSection = () => {
       ></div>
       <div className="flex-1 flex items-center relative z-10 px-2">
         <div className="text-center mx-auto text-white">
-          <h1 className="font-cursive text-7xl lg:text-9xl font-extrabold my-4 ">
+          <h1 className="font-cursive text-7xl lg:text-9xl font-extrabold my-4">
             Welcome to Kasthamandap{" "}
           </h1>
           <p className="text-3xl font-medium lg:text-4xl font-cursive">
