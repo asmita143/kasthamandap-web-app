@@ -1,41 +1,73 @@
+import { useState } from "react";
+import PopUp from "./PopUp";
+
 const AboutMenu = () => {
+  const [openPopup, setOpenPopup] = useState(false);
+  const [dishType, setDishType] = useState("");
+
+  const handleClick = (name) => {
+    // Handle the card click event here
+    console.log(name);
+    setDishType(name)
+    setOpenPopup(true)
+  };
+
+  const HandleRemovePopUp = () => setOpenPopup(false);
+
   return (
-    <div className="mx-10 my-20">
-      <div className="flex flex-col items-center">
-        <span className="font-cursive absolute mt-5 text-4xl text-white ">
-          All dishes includes basmati rice, naan bread and a dash of sause.
-        </span>
-        <span className="font-cursive absolute mt-20 text-4xl text-white shadow-2xl">
-          The lunch includes a salad table, coffe, Nepali tea and Mango Lassi.
-        </span>
-        <span className="absolute mt-40">
-          <button
-            type="button"
-            className="focus:outline-none bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-xl px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-          >
-            See Menu
-          </button>
-        </span>
-        <div className="flex  absolute mt-60">
-          <button
-            type="button"
-            className="font-satisfy w-25  bg-cyan-400 hover:bg-cyan-500 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xl px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-          >
-            Wolt
-          </button>
-          <button
-            type="button"
-            className="font-satisfy ml-20 w-25  bg-red-500 hover:bg-red-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xl px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-          >
-            Foodora
-          </button>
+    <section
+      className="flex flex-col min-h-screen relative"
+      style={{
+        backgroundImage: `url($../../public/assets/images/nepali_spices.jpeg)`,
+        backgroundSize: "cover",
+      }}
+    >
+      <div
+        className="absolute inset-0 bg-black opacity-60"
+        style={{ zIndex: 1 }}
+      ></div>
+      <div className="flex-1 flex items-center relative z-10 px-2">
+        <div className="text-center mx-auto text-white">
+          <h1 className="font-cursive text-7xl lg:text-9xl font-extrabold my-4">
+            Our Menu{" "}
+          </h1>
+          <p className="text-xl font-medium lg:text-2xl  text-justify ">
+            All dishes include basmati rice, naan bread and a dash of sauce. The
+            food can be increased if heat is needed. Remember to inform the
+            staff about allergies. l= Lactose-free (the raita sauce and naan
+            bread included in the portions contain lactose.) g= Lactose-free
+            (the naan bread included in the portions contains gluten.) v= Vegan
+            (It is possible to get the serving as vegan.)
+          </p>
+
+          <div className="flex flex-col md:flex-row items-center justify-center md:gap-16">
+            <a
+              onClick={() => handleClick("Lunch")}
+              className="px-10 py-2 inline-block bg-orange-500 text-white font-bold text-xl hover:bg-orange-700 transition-colors mt-10 rounded"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ maxWidth: "200px" }}
+            >
+              {" "}
+              Lunch Menu{" "}
+            </a>
+            <a
+              onClick={() => handleClick("Alacarte")}
+              className="px-10 py-2 inline-block  bg-orange-500 text-white font-bold text-xl hover:bg-orange-700 transition-colors mt-10 rounded"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ maxWidth: "200px" }}
+            >
+              {" "}
+              A La Carte{" "}
+            </a>
+          </div>
         </div>
       </div>
-      <img
-        className="object-cover h-96 w-full rounded-lg"
-        src="./assets/images/Nepalese.jpeg"
-      ></img>
-    </div>
+      <div>
+          <PopUp openPopUp={openPopup} closePopUp={HandleRemovePopUp} dishType={dishType}/>   
+      </div>
+    </section>
   );
 };
 

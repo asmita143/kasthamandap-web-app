@@ -1,31 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import DisplayMenu from '../MenuItems';
 
 const PopUp = ({ openPopUp, closePopUp, dishType}) => {
     const[showMenu, setShowMenu] = useState(true);
     const [dishName, setDishName] = useState("");
+    const [selectedButton, setSelectedButton] = useState();
 
-  const handlelosePopUp = (e) => {
+  const handleclosePopUp = (e) => {
     if (e.target.id === 'ModelContainer') {
       closePopUp();
     }
-  }
+  };
 
-  const handleCardClick = (name) => {
+  useEffect(() => {
+    console.log("I am now running");
+    if(dishType === "Alacarte") {
+      handleCardClick("Starters", 1)
+    } else if (dishType === "Lunch") {
+      handleCardClick("Sunday", 1)
+    }
+  }, [dishType]);
+
+  const handleCardClick = (name, id) => {
     // Handle the card click event here
+    setSelectedButton(id)
     setShowMenu(true)
     setDishName(name)
   };
 
-  const Category = ({item}) => {
+  const Category = ({item, id}) => {
       return(
         <div className="">
             <button
-                onClick={() => handleCardClick(item)}
+                onClick={() => handleCardClick(item, id)}
                 type="button"
-                className="font-medium rounded-lg text-xl px-4 py-1 outline outline-offset-2 outline-blue-500"
-            >
+                className={`font-medium italic rounded-md text-sm px-1 py-1 border border-black ${selectedButton === id ? 'bg-green-500 text-white' : ''}`}>
                 {item}
             </button>
         </div>
@@ -37,39 +47,76 @@ const PopUp = ({ openPopUp, closePopUp, dishType}) => {
   return (
     <div
       id='ModelContainer'
-      onClick={handlelosePopUp}
-      className='fixed inset-0 bg-black flex justify-center items-center bg-opacity-40 backdrop-blur-sm'>
-      <div 
-        className='p-2 bg-white h-4/5 w-10/12 md:w-1/2 lg:1/3 shadow-inner border-e-emerald-600 rounded-lg py-1 overflow-y-auto'>
-        {dishType === "Alacarte" && (
-            <div className=' flex-col'>
-                <div className="flex flex-wrap m-5 gap-3 justify-center items-center">
-                    <Category item="Starters" />
-                    <Category item="Vegetarian Dishes" />
-                    <Category item="Lamb Dishes" />
-                    <Category item="Chicken Dishes" />
-                    <Category item="Tandoor Dishes" />
+      onClick={handleclosePopUp}
+      className='fixed left-0 top-5 z-[1055] h-full w-full overflow-y-auto overflow-x-hidden outline-none'>
+      <div className='pointer-events-none relative w-auto translate-y-[-50px] transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[700px]'>
+        <div className='min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none'>
+          <div className='flex flex-shrink-0 mt-5 items-center justify-between rounded-t-md border-b-2 border-gray p-4'>
+            <h5
+              className="text-xl font-medium leading-normal text-current">
+              {dishType}
+            </h5>
+            <button
+              type="button"
+              className="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none">
+              
+            </button>
+          </div>
+          <div 
+            className='relative p-3 min-h-screen'>
+              {dishType === "Alacarte" && (
+                <div className='flex-col'>
+                    <div className="flex flex-wrap m-5 gap-3 justify-center items-center">
+                    <button
+                      onClick={() => handleCardClick("Starters", 1)}
+                      type="button"
+                      className={`font-medium italic rounded-md text-sm px-1 py-1 border border-black ${selectedButton === 1 ? 'bg-green-500 text-white' : ''}`}>
+                      Starters
+                   </button>
+                        <Category id="2" item="Vegetarian" />
+                        <Category id="3" item="Lamb" />
+                        <Category id="4" item="Chicken" />
+                        <Category id="5" item="Tandoor" />
+                        <Category id="6" item="Vegan" />
+                        <Category id="7" item="Drinks" />
+                    </div>
+                    {showMenu && (
+                        <DisplayMenu name={dishName} />
+                    )}
                 </div>
-                {showMenu && (
-                    <DisplayMenu name={dishName} />
-                )}
-            </div>
-        )}
+            )}
 
-        {dishType === "Lunch" && (
-            <div className=' flex-col'>
-                <div className="flex flex-wrap m-5 gap-3 justify-center items-center">
-                    <Category item="Sunday" />
-                    <Category item="Monday" />
-                    <Category item="Tuesday" />
-                    <Category item="Wednesday" />
-                    <Category item="Thursday" />
+            {dishType === "Lunch" && (
+                <div className='flex-col'>
+                    <div className="flex flex-wrap m-5 gap-3 justify-center items-center">
+                          <button
+                            onClick={() => handleCardClick("Sunday", 1)}
+                            type="button"
+                            className={`font-medium italic rounded-md text-sm px-1 py-1 border border-black ${selectedButton === 1 ? 'bg-green-500 text-white' : ''}`}>
+                            Sunday
+                        </button>
+                        <Category id="2" item="Monday" />
+                        <Category id="3" item="Tuesday" />
+                        <Category id="4" item="Wednesday" />
+                        <Category id="5" item="Thursday" />
+                    </div>
+                    {showMenu && (
+                        <DisplayMenu name={dishName} />
+                    )}
                 </div>
-                {showMenu && (
-                    <DisplayMenu name={dishName} />
-                )}
-            </div>
-        )}
+            )}
+          </div>
+          <div
+            className="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-gray-200 p-4">
+            <button
+              id='ModelContainer'
+              onClick={handleclosePopUp}
+              type="button"
+              className="inline-block rounded bg-red-600 px-6 pb-2 pt-2.5 text-sm font-medium uppercase leading-normal text-white transition duration-150 ease-in-out ">
+              Close
+            </button>
+      </div>
+        </div>
       </div>
     </div>
   )

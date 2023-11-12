@@ -1,11 +1,17 @@
-import AboutPage from "./components/AboutPage";
-import AlaCarteMenuPage from "./components/AlaCarteMenuPage";
-
+import Footer from "./components/Footer";
+import About from "./components/About";
+import AboutMenu from "./components/AboutMenu";
+import HeroSection from "./components/HeroSection";
+import TopNavBar from "./components/TopNavBar";
 
 const App = () => {
   return (
     <>
-      <AlaCarteMenuPage />
+      <TopNavBar />
+      <HeroSection />
+      <About />
+      <AboutMenu />
+      <Footer />
     </>
   );
 };

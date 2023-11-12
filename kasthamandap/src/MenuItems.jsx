@@ -8,7 +8,7 @@ import Divider from "./components/ui/Divider";
 const DisplayMenu = ({name}) => {
     const { starters, chickenDish, lambDish, vegDish, tandoorDish, veganFood } = useFoodMenu();
     return(
-      <div className="w-full p-6">
+      <div className="w-full p-3">
         <CardTitle dishName={name}></CardTitle>
         {name === "Starters" &&
             starters.map((starter, index) => (
@@ -19,7 +19,7 @@ const DisplayMenu = ({name}) => {
             </React.Fragment>
         ))}
 
-        {name === "Vegetarian Dishes" &&
+        {name === "Vegetarian" &&
             vegDish.map((veg, index) => (
             <React.Fragment key={index}>
             <CardHeader dish={veg.title} price={veg.price} />
@@ -28,7 +28,7 @@ const DisplayMenu = ({name}) => {
             </React.Fragment>
         ))}
 
-        {name === "Lamb Dishes" &&
+        {name === "Lamb" &&
             lambDish.map((lamb, index) => (
             <React.Fragment key={index}>
             <CardHeader dish={lamb.title} price={lamb.price} />
@@ -37,7 +37,7 @@ const DisplayMenu = ({name}) => {
             </React.Fragment>
         ))}
 
-        {name === "Chicken Dishes" &&
+        {name === "Chicken" &&
             chickenDish.map((chicken, index) => (
             <React.Fragment key={index}>
             <CardHeader dish={chicken.title} price={chicken.price} />
@@ -46,7 +46,7 @@ const DisplayMenu = ({name}) => {
             </React.Fragment>
         ))}
 
-        {name === "Tandoor Dishes" &&
+        {name === "Tandoor" &&
             tandoorDish.map((tandoor, index) => (
             <React.Fragment key={index}>
             <CardHeader dish={tandoor.title} price={tandoor.price} />
@@ -55,7 +55,7 @@ const DisplayMenu = ({name}) => {
             </React.Fragment>
         ))}
 
-        {name === "Vegan Dishes" &&
+        {name === "Vegan" &&
             veganFood.map((veganfood, index) => (
             <React.Fragment key={index}>
             <CardHeader dish={veganfood.title} price={veganfood.price} />
