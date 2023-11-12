@@ -50,7 +50,7 @@ function useFoodMenu() {
       );
       setTandoorDish(tandoorDishOnly);
 
-      //Filter food items where seaFood is true
+      //Filter food items where veganFood is true
       const veganDishOnly = filteredFood.filter(
         (item) => item.vegan === true
       );
